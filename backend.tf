@@ -1,11 +1,9 @@
-
-data "terraform_remote_state" "vpc" {
-  backend = "remote"
-
-  config = {
+terraform {
+  backend "remote" {
     organization = "demo-land"
-    workspaces = {
-      name = "aws-vpc"
+
+    workspaces {
+      name = "aws-echo-sys"
     }
   }
 }

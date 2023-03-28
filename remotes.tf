@@ -1,9 +1,10 @@
-terraform {
-  # required_version = "~> 1.1.4"
-  backend "remote" {
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+
+  config = {
     organization = "demo-land"
-    workspaces {
-      name = "aws-demo-app"
+    workspaces = {
+      name = "aws-vpc"
     }
   }
 }

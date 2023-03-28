@@ -14,3 +14,21 @@ variable key_name {
   type        = string
   default = "management"
 }
+
+variable ami_id {
+  description = "The AMI ID to use for the instance"
+  type        = string
+  default = "ami-09b44b5f46219ee9c"
+}
+
+variable instance_type {
+  description = "The instance type to use for the instance"
+  type        = string
+  default = "t2.micro"
+}
+
+variable instance_count {
+  description = "The number of instances to create"
+  type        = number
+  default = 1
+}
