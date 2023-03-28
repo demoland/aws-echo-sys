@@ -97,7 +97,7 @@ resource "aws_instance" "example" {
   ami            = local.ami_id 
   instance_type  = var.instance_type
   key_name       = aws_key_pair.management_key.key_name
-  vpc_security_group_ids = [aws_security_group.web.id]
+  vpc_security_group_ids = [aws_security_group.web.id, aws_security_group.ssh.id]
   subnet_id      = local.public_subnet_0
   associate_public_ip_address = true
 
