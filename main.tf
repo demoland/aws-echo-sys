@@ -53,8 +53,8 @@ locals {
   public_subnet_0 = element(data.terraform_remote_state.vpc.outputs.public_subnet_ids, 0)
   vpc_id          = data.terraform_remote_state.vpc.outputs.vpc_id
   // This AMI is the Ubuntu 20.04 located in us-east-2
-  my_ip           = var.my_ip
-  cidr_block      = var.cidr_block
+  #my_ip           = var.my_ip
+  cidr_block      = data.terraform_remote_state.vpc.outputs.vpc_cidr
   ami_id          = data.aws_ami.ubuntu_focal.image_id
   private_subnets = data.terraform_remote_state.vpc.outputs.private_subnet_ids
   public_subnets  = data.terraform_remote_state.vpc.outputs.public_subnet_ids
