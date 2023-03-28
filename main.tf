@@ -90,9 +90,9 @@ resource "aws_security_group" "web" {
 resource "aws_instance" "example" {
   count          = var.instance_count
   ami            = local.ami_id 
-  instance_type  = local.instance_type
-  key_name       = local.key_name
-  security_groups = [local.security_group_id.web]
+  instance_type  = var.instance_type
+  key_name       = var.key_name
+  vpc_security_group_ids = [aws_security_group.security_group_id.web.id]
   subnet_id      = local.public_subnet_0
   associate_public_ip_address = true
 
