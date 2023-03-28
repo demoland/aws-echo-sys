@@ -33,3 +33,8 @@ variable management_pubkey {
   type = string
   sensitive = true
 }
+
+variable my_ip {
+  description = "The IP address to allow SSH access from"
+  type        = string
+}
