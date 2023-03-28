@@ -1,8 +1,3 @@
-variable vpc_id {
-  description = "The VPC ID"
-  type        = string
-}
-
 variable web_port {
   description = "The port the web server is listening on"
   type        = number
