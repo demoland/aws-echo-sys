@@ -48,6 +48,11 @@ data "aws_ami" "ubuntu_focal" {
   }
 }
 */
+resource "aws_key_pair" "management_key" {
+  key_name   = "management"
+  public_key = var.management_pubkey
+}
+
 
 locals {
   public_subnet_0 = element(data.terraform_remote_state.vpc.outputs.public_subnet_ids, 0)
@@ -91,7 +96,7 @@ resource "aws_instance" "example" {
   count          = var.instance_count
   ami            = local.ami_id 
   instance_type  = var.instance_type
-  key_name       = var.key_name
+  key_name       = aws_key_pair.management_key.key_name
   vpc_security_group_ids = [aws_security_group.web.id]
   subnet_id      = local.public_subnet_0
   associate_public_ip_address = true

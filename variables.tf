@@ -27,3 +27,9 @@ variable instance_count {
   type        = number
   default = 1
 }
+
+variable management_pubkey {
+  description = "The public key to use for the instance"
+  type = string
+  sensitive = true
+}
